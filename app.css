@@ -1,0 +1,10 @@
+html {
+    font-size: 16px;
+    background-color: white;
+}
+
+input {
+    font-size: 16px;
+    margin: 0 auto;
+    width: 220px;
+}
