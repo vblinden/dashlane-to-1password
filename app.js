@@ -1,4 +1,4 @@
-const vue = new Vue({
+const converter = new Vue({
     el: '#app',
     data: {
         csv: '',
