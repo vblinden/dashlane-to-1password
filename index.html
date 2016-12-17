@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Dashlane to 1Password</title>
+<head>
+    <meta charset="utf-8">
+    <title>Dashlane to 1Password</title>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css" />
-        <link rel="stylesheet" href="/app.css">
-    </head>
-    <body>
-        <div id="app">
-            <div class="section">
-                <div class="container">
-                    <div class="columns">
-                        <div class="column is-7 content">
-                            <h1>Dashlane to 1Password</h1>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.min.css" />
+    <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+    <div id="app">
+        <div class="section">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-7 content">
+                        <h1>Dashlane to 1Password</h1>
 
-                            <h3>What does this do?</h3>
-                            <p>
-                                This is a tool that converts the Dashlane exported file (Unsecured archive (readable) in CSV format), to an 1Password compatible file. I hope this helps people who are switching from Dashlane to 1Password. If you experience an issue, please open an issue on the <a href="https://github.com/vblinden/dashlane-to-1password/issues" target="_blank">GitHub project</a> page.
-                            </p>
+                        <h3>What does this do?</h3>
+                        <p>
+                            This is a tool that converts the Dashlane exported file (Unsecured archive (readable) in CSV format), to an 1Password compatible file. I hope this helps people who are switching from Dashlane to 1Password. If you experience an issue, please open an issue on the <a href="https://github.com/vblinden/dashlane-to-1password/issues" target="_blank">GitHub project</a> page.
+                        </p>
 
-                            <h3>Is it secure? We're talking about my passwords here!</h3>
-                            <p>
-                                To be clear, your file will <strong>!! never ever !!</strong> touch a server, this is all being done on the client side in your browser. You can look at the code on: <a href="https://github.com/vblinden/dashlane-to-1password" target="_blank">https://github.com/vblinden/dashlane-to-1password</a>.
-                            </p>
+                        <h3>Is it secure? We're talking about my passwords here!</h3>
+                        <p>
+                            To be clear, your file will <strong>!! never ever !!</strong> touch a server, this is all being done on the client side in your browser. You can look at the code on: <a href="https://github.com/vblinden/dashlane-to-1password" target="_blank">https://github.com/vblinden/dashlane-to-1password</a>.
+                        </p>
 
-                            <h3>What do I do?</h3>
-                            <p>
-                                Upload your Dashlane exported file (CSV format) with the file uploader to your right, and it will automatically generate and download the 1Password compatible file.
-                            </p>
+                        <h3>What do I do?</h3>
+                        <p>
+                            Upload your Dashlane exported file (CSV format) with the file uploader to your right, and it will automatically generate and download the 1Password compatible file.
+                        </p>
 
-                            <h3>Thank you!</h3>
-                            <p>
-                                If this tool helped you in anyway (it isn't perfect), and you want to donate, you can do so with the button below. Thanks!
-                            </p>
-                            <p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=62BHCRUQ236LQ" target="_blank" class="button is-primary is-medium">Donate</a></p>
+                        <h3>Thank you!</h3>
+                        <p>
+                            If this tool helped you in anyway (it isn't perfect), and you want to donate, you can do so with the button below. Thanks!
+                        </p>
+                        <p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=62BHCRUQ236LQ" target="_blank" class="button is-primary is-medium">Donate</a></p>
+                    </div>
+                    <div class="column content">
+                        <div class="message is-success" v-if="success_message">
+                            <div class="message-body">
+                                Success! The conversion went right. Try to import it in Dashlane, if it gave you any errors, please make sure you upload the file that was exported from Dashlane in the readable (unsecured) CSV format. I could only test this
+                                converter on a handful of Dashlane exports, so it will not work for everyone. If you want to help, please create an issue on the <a href="https://github.com/vblinden/dashlane-to-1password/issues" target="_blank">GitHub project page</a>.
+                            </div>
                         </div>
-                        <div class="column content has-text-centered">
-                            <p>
+
+                        <div class="has-text-centered">
+                            <p class="has-text-centered">
                                 Upload your "Unsecured archive (readable) in CSV format" file exported from Dashlane here.
                             </p>
 
@@ -47,10 +55,11 @@
                 </div>
             </div>
         </div>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js"></script>
-        <script src="/lib/papaparse.js"></script>
-        <script src="https://unpkg.com/vue/dist/vue.js"></script>
-        <script src="app.js"></script>
-    </body>
+    <script src="https://cdn.jsdelivr.net/lodash/4.17.2/lodash.min.js"></script>
+    <script src="/lib/papaparse.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
 </html>

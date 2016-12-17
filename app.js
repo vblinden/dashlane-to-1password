@@ -2,6 +2,7 @@ const app = new Vue({
     el: '#app',
     data: {
         csv: '',
+        success_message: false
     },
     methods: {
         upload(event) {
@@ -10,8 +11,12 @@ const app = new Vue({
             var self = this;
             reader.onload = function () {
                 self.csv = Papa.parse(reader.result);
-                self.generateNewFile();
 
+                try {
+                    self.generateNewFile();
+                } catch (exception) {
+                    // No error handler for now.
+                }
             };
 
             reader.readAsBinaryString(uploaded[0]);
@@ -74,6 +79,8 @@ const app = new Vue({
             download.setAttribute('download', "1password.csv");
             document.body.appendChild(download);
             download.click();
+
+            this.success_message = true;
         },
 
         contains(string, ...words) {
